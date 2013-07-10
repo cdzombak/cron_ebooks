@@ -1,9 +1,9 @@
-# Worker code can be anything you want.
 require 'rubygems'
+require 'require_relative'
 require 'twitter'
 
-require 'twitter_init'
-require 'markov'
+require_relative 'twitter_init'
+require_relative 'markov'
 
 source_tweets = []
 
