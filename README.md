@@ -14,4 +14,4 @@ A simple and hackish ruby script for pseudorandomly posting to a _ebooks account
 6. Upload to your server
 7. `gem install twitter require_relative`, or if you're going to use bundler or something better, set that up with those gems
 8. Run it with `ruby ebook.rb` a few times
-9. Schedule it to run regularly with cron. I'd suggest once every 53 minutes or so: `*/53   *   *   *   *   ruby /home/USER/scripts/USER_ebooks/ebook.rb`
+9. Schedule it to run regularly with cron. I'd suggest once every 53 minutes or so: `*/53   *   *   *   *   ruby /home/USER/scripts/USER_ebooks/ebook.rb  > /dev/null 2>&1`
