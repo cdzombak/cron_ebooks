@@ -1,22 +1,30 @@
 require 'rubygems'
 require 'require_relative'
 require 'twitter'
+require 'optparse'
 
 require_relative 'twitter_init'
 require_relative 'markov'
 
 source_tweets = []
-
 $rand_limit ||= 10
+options = { :tweet => true, :force => false }
 
-puts "PARAMS: #{params}" if params.any?
+opt_parser = OptionParser.new do |opt|
+  opt.on("--no-tweet", "Do not post anything to Twitter") do
+    options[:tweet] = false
+  end
 
-unless params.key?("tweet")
-  params["tweet"] = true
+  opt.on("-f","--force", "Force sending tweet this time?") do
+    options[:force] = true
+  end
 end
 
+opt_parser.parse!
+puts "OPTIONS: #{options}"
+
 # randomly running only about 1 in $rand_limit times
-unless rand($rand_limit) == 0 || params["force"]
+unless rand($rand_limit) == 0 || options[:force]
   puts "Not running this time"
 else
   # Fetch a thousand tweets
@@ -50,7 +58,7 @@ else
     break if !tweet.nil? && tweet.length < 140 && !source_tweets.any? {|t| t.text != tweet }
   end
 
-  if params["tweet"]
+  if options[:tweet]
     if !tweet.nil? && tweet != ''
       puts "TWEET: #{tweet}"
       Twitter.update(tweet)
