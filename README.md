@@ -16,7 +16,7 @@ A simple and hackish ruby script for pseudorandomly posting to a _ebooks account
 8. Run it with `ruby ebook.rb` a few times
 9. Schedule it to run regularly with cron. I'd suggest once every 53 minutes or so: `*/53   *   *   *   *   ruby /home/USER/scripts/USER_ebooks/ebook.rb  > /dev/null 2>&1`
 
-## Command-line options
+## Command-line options (debugging)
 
 * `--no-tweet`: Do not post anything to Twitter.
 * `-f`; `--force`: Run the algorithm this time (bypasses the once-every-`n`-times pseudorandom logic).
