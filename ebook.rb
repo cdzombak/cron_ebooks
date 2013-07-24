@@ -54,7 +54,6 @@ else
       max_id = user_tweets.last.id
       source_tweets += filtered_tweets(user_tweets)
     end
-  rescue
   end
 
   puts "#{source_tweets.length} tweets found"
