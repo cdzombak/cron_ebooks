@@ -7,6 +7,7 @@ GEM
     faraday (0.8.7)
       multipart-post (~> 1.1)
     ffi (1.9.0)
+    htmlentities (4.3.1)
     mime-types (1.23)
     multi_json (1.7.7)
     multipart-post (1.2.0)
@@ -26,6 +27,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  htmlentities
   punkt-segmenter
   require_relative
   twitter
