@@ -6,3 +6,7 @@ Twitter.configure do |config|
 end
 
 $source_account = 'your_regular_account'
+
+$rand_limit = 10   # run 1 out of every $rand_limit times roughly
+$include_urls = false
+$include_replies = true

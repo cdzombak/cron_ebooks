@@ -13,8 +13,6 @@ require_relative 'markov'
 source_tweets = []
 $rand_limit ||= 10
 $markov_index ||= 2
-include_urls ||= false
-include_replies ||= true
 options = { :tweet => true, :force => false }
 
 opt_parser = OptionParser.new do |opt|
@@ -39,6 +37,9 @@ def random_closing_punctuation
 end
 
 def filtered_tweets(tweets)
+  include_urls = $include_urls || false
+  include_replies = $include_replies || true
+
   html_decoder = HTMLEntities.new
   source_tweets = tweets.map {|t| html_decoder.decode(t.text).gsub(/\b(RT|MT) .+/, '') }
 
@@ -77,10 +78,6 @@ else
       max_id = user_tweets.last.id
       source_tweets += filtered_tweets(user_tweets)
     end
-
-  rescue => ex
-    puts ex.message
-
   end
 
   puts "#{source_tweets.length} tweets found"
