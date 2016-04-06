@@ -1,5 +1,7 @@
 # cron_ebooks
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 **This is a really simple adaptation of [@harrisj's iron_ebooks](https://github.com/harrisj/iron_ebooks) to run on any server with cron.**
 
 A simple and hackish ruby script for pseudorandomly posting to a _ebooks account tweets derived from a regular twitter account.
