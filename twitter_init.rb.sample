@@ -1,8 +1,8 @@
-Twitter.configure do |config|
+$client = Twitter::REST::Client.new do |config|
   config.consumer_key = 'KEY'
   config.consumer_secret = 'KEY'
-  config.oauth_token = 'KEY'
-  config.oauth_token_secret = 'KEY'
+  config.access_token = 'KEY'
+  config.access_token_secret = 'KEY'
 end
 
 $source_account = 'your_regular_account'
